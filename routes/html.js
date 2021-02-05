@@ -5,15 +5,12 @@ const path = require("path");
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 
 
-// html routes go here 
-// router.get("/", (req, res) => {
-//     res.render("index");
-// });
 
 // https://stackoverflow.com/questions/25463423/res-sendfile-absolute-path
+// https://www.codota.com/code/javascript/functions/express/Response/sendFile
 // uncertainty found here
 // why do this route and not the one found in class?
-
+// res.render only works with a templating engine, like handlebars
 
 router.get("/stats", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/stats.html"));
@@ -22,19 +19,5 @@ router.get("/stats", (req, res) => {
 router.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
-
-// app.get("/stats", (req, res) => {
-//     db.Workout.find({})
-//         .then(dbWorkout => {
-//             res.json(dbWorkout);
-//         })
-//         .catch(err => {
-//             res.json(err);
-//         });
-// });
-
-// router.get("/exercise?", (req, res) => {
-//     res.render("exercise");
-// });
 
 module.exports = router;
