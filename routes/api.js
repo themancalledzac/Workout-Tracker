@@ -14,16 +14,14 @@ const Workout = require("../models/workout.js");
 //                          "/api/workouts"                           //
 // ------------------------------------------------------------------ //
 
-router.get("/api/workouts", async (req, res) => {
-    try {
-        await Workout.find({})
-            .sort({})
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-    } catch (err) {
-        res.status(400).json(err);
-    };
+router.get("/api/workouts", (req, res) => {
+    Workout.find()
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
 });
 
 // ------------------------------------------------------------------ //
@@ -33,19 +31,18 @@ router.get("/api/workouts", async (req, res) => {
 // https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate //
 // ------------------------------------------------------------------ //
 
-router.put("/api/workouts/:id", async ({ body, params }, res) => {
-    try {
-        await Workout.findByIdAndUpdate(
-            params.id, // id
-            { $push: { exercises: body } }, // update
-            { new: true, runValidators: true } // options
-        )
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-    } catch (err) {
-        res.status(400).json(err);
-    };
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+    Workout.findByIdAndUpdate(
+        params.id, // id
+        { $push: { exercises: body } }, // update
+        { new: true, runValidators: true } // options
+    )
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
 });
 
 // ------------------------------------------------------------------ //
@@ -53,15 +50,14 @@ router.put("/api/workouts/:id", async ({ body, params }, res) => {
 //                              post                                  //
 //                         "/api/workouts"                            //
 // ------------------------------------------------------------------ //
-router.post("/api/workouts", async ({ body }, res) => {
-    try {
-        Workout.create()
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-    } catch (err) {
-        res.status(400).json(err);
-    };
+router.post("/api/workouts", (req, res) => {
+    Workout.create()
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
 });
 
 // router.post("/api/workouts", async ({ body }, res) => {
@@ -81,15 +77,14 @@ router.post("/api/workouts", async ({ body }, res) => {
 // ------------------------------------------------------------------ //
 // references function: 
 router.get("/api/workouts/range", async (req, res) => {
-    try {
-        await Workout.find({})
-            .limit(7)
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-    } catch (err) {
-        res.status(400).json(err);
-    };
+    Workout.find({})
+        .limit(7)
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
 });
 
 
