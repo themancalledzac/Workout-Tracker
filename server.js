@@ -1,4 +1,6 @@
+// our required npm packages
 const express = require("express");
+// logger everytime we do a request
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
@@ -18,6 +20,8 @@ app.use(express.static("public"));
 // connection to mongoose for local development
 mongoose.connect("mongodb://localhost/workout", {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
     useFindAndModify: false
 });
 
