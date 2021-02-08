@@ -4,48 +4,63 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Schema({
-    date: {
-        type: Date,
-        default: Date.now
-    },
-    exercises: [
-        {
-            type: {
-                type: String,
-                trim: true,
-                required: "Enter a type of exercise."
+const WorkoutSchema = new Schema(
+    {
+        day: {
+            type: Date,
+            default: Date.now
+        },
+        exercises: [
+            {
+                type: {
+                    type: String,
+                    trim: true,
+                    required: "Enter a type of exercise."
 
-            },
-            name: {
-                type: String,
-                trim: true,
-                required: "Enter your name."
-            },
-            duration: {
-                type: Number,
-                trim: true,
-                required: "Enter duration of exercise."
-            },
-            weight: {
-                type: Number,
-                trim: true,
-                required: "Enter your current weight."
-            },
-            reps: {
-                type: Number,
-                trim: true,
-                required: "Enter number or reps."
-            },
-            sets: {
-                type: Number,
-                trim: true,
-                required: "Enter number of sets."
+                },
+                name: {
+                    type: String,
+                    trim: true,
+                    required: "Enter your name."
+                },
+                duration: {
+                    type: Number,
+                    trim: true,
+                    required: "Enter duration of exercise."
+                },
+                weight: {
+                    type: Number,
+                    trim: true,
+                    required: "Enter your current weight."
+                },
+                reps: {
+                    type: Number,
+                    trim: true,
+                    required: "Enter number or reps."
+                },
+                sets: {
+                    type: Number,
+                    trim: true,
+                    required: "Enter number of sets."
+                },
+                distance: {
+                    type: Number
+                }
             }
-        }
-    ]
+        ],
+        // public/workout/line11
+        totalDuration: Number
 
-});
+    }
+
+);
+// ------------------------------------------------------- //
+//                                                         //
+//           custom method for workout length              //
+//            How do we make this function??               //
+//                                                         //
+// ------------------------------------------------------- //
+WorkoutSchema.methods.se
 
 // this creates our model from the above schema, using mongoose's model method
 

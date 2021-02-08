@@ -1,3 +1,5 @@
+// npm run seed to seed server
+
 let mongoose = require("mongoose");
 let db = require("../models");
 
