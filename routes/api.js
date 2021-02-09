@@ -1,6 +1,6 @@
 // initial router requirements
 // or just say const router = require("express").Router();
-const { response } = require("express");
+// const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const Workout = require("../models/workout.js");
