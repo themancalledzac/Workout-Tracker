@@ -3,6 +3,7 @@ const express = require("express");
 // logger everytime we do a request
 const logger = require("morgan");
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 

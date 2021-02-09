@@ -61,9 +61,9 @@ const workoutSchema = new Schema(
 //                                                         //
 // ------------------------------------------------------- //
 
-exercises.forEach(exercise => {
-    totalDuration += exercise.duration
-});
+// exercises.forEach(exercise => {
+//     totalDuration += exercise.duration
+// });
 // WorkoutSchema.methods // add totalDuration of each exercise
 
 // this creates our model from the above schema, using mongoose's model method
