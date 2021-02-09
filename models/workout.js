@@ -45,11 +45,11 @@ const workoutSchema = new Schema(
                 },
                 distance: {
                     type: Number
-                },
+                }
                 // public/workout/line11
-                totalDuration: Number
             }
         ],
+        totalDuration: Number
 
     }
 
@@ -60,9 +60,10 @@ const workoutSchema = new Schema(
 //            How do we make this function??               //
 //                                                         //
 // ------------------------------------------------------- //
-// function totalDuration() {
-//     const total = 
-// }
+
+exercises.forEach(exercise => {
+    totalDuration += exercise.duration
+});
 // WorkoutSchema.methods // add totalDuration of each exercise
 
 // this creates our model from the above schema, using mongoose's model method
