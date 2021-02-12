@@ -49,8 +49,12 @@ const workoutSchema = new Schema(
                 // public/workout/line11
             }
         ],
-        
-
+    },
+    {
+        // https://mongoosejs.com/docs/tutorials/virtuals.html
+        toJSON: {
+            virtuals: true
+        }
     }
 
 );
