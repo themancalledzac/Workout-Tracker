@@ -8,7 +8,7 @@ const workoutSchema = new Schema(
     {
         day: {
             type: Date,
-            default: () => new Date()
+            default: Date.now
         },
         exercises: [
             {
@@ -49,7 +49,7 @@ const workoutSchema = new Schema(
                 // public/workout/line11
             }
         ],
-        totalDuration: Number
+        
 
     }
 
@@ -60,6 +60,12 @@ const workoutSchema = new Schema(
 //            How do we make this function??               //
 //                                                         //
 // ------------------------------------------------------- //
+
+workoutSchema.virtual("totalDuration").get(function() {
+    return this.exercises.reduce( (acc, exercise) => {
+        return acc + exercise.duration;
+    }, 0);
+});
 
 // exercises.forEach(exercise => {
 //     totalDuration += exercise.duration
